@@ -62,5 +62,15 @@ func main() {
 	r.HandleFunc("/quiz/", getRandomQuiz).Methods("GET")
 	r.HandleFunc("/quiz/{id}", getQuizByID).Methods("GET")
 
-	log.Fatal(http.ListenAndServe(":8000", r))
+	port := os.Getenv("PORT")
+
+    	if port == "" {
+        	port = "8000"
+        	log.Printf("defaulting to port %s\n", port)
+	}
+
+	http.ListenAndServe(":" + port, nil)
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		log.Fatal(err)
+	}
 }
