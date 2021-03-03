@@ -69,8 +69,7 @@ func main() {
         	log.Printf("defaulting to port %s\n", port)
 	}
 
-	http.ListenAndServe(":" + port, nil)
-	if err := http.ListenAndServe(":"+port, nil); err != nil {
+	if err := http.ListenAndServe(":"+port, r); err != nil {
 		log.Fatal(err)
 	}
 }
