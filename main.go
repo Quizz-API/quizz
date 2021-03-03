@@ -59,8 +59,8 @@ func main() {
 
 	r := mux.NewRouter().StrictSlash(true)
 
-	r.HandleFunc("/quiz/", getRandomQuiz).Methods("GET")
-	r.HandleFunc("/quiz/{id}", getQuizByID).Methods("GET")
+	r.HandleFunc("/", getRandomQuiz).Methods("GET")
+	r.HandleFunc("/{id}", getQuizByID).Methods("GET")
 
 	port := os.Getenv("PORT")
 
