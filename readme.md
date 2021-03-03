@@ -2,7 +2,7 @@
 
 ### Routes
 
-`/quiz/` -> Random question
+`/` -> Random question
 
 Example:
 ```json
@@ -20,9 +20,9 @@ Example:
 }
 ```
 
-`/quiz/[0-899]` -> Fetch question by ID
+`/[0-899]` -> Fetch question by ID
 
-Example with `/quiz/87`:
+Example with `/87`:
 ```json
 {
     "id":87,
