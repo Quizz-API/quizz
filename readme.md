@@ -34,6 +34,7 @@ Example with `/87`:
         "18 times"
     ],
     "réponse":"78 times",
-    "anecdote":"Hummingbirds are also known as hummingbirds because of their small size and fast wing beats."}
+    "anecdote":"Hummingbirds are also known as hummingbirds because of their small size and fast wing beats."
+}
 ```
 
