@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -25,6 +26,7 @@ var quizzs []Quiz
 func getRandomQuiz(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
+	rand.Seed(time.Now().UnixNano())
 	question := quizzs[rand.Intn(len(quizzs))]
 
 	json.NewEncoder(w).Encode(question)
@@ -64,9 +66,9 @@ func main() {
 
 	port := os.Getenv("PORT")
 
-    	if port == "" {
-        	port = "8000"
-        	log.Printf("defaulting to port %s\n", port)
+	if port == "" {
+		port = "8000"
+		log.Printf("defaulting to port %s\n", port)
 	}
 
 	if err := http.ListenAndServe(":"+port, r); err != nil {
